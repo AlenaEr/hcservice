@@ -33,7 +33,7 @@ public class MeasurementService {
      * @return The measurement history for the specified user.
      */
     public Page<Measurement> getMeasurementHistory(Long userId, Pageable pageable) {
-        return measurementRepository.findByUserIdOrderByLocalDateTimeDesc(userId, pageable);
+        return measurementRepository.findByUserIdOrderBySubmittedDateTimeDesc(userId, pageable);
     }
 
 }
