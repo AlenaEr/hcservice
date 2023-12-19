@@ -2,9 +2,9 @@ package com.example.hcservices.services;
 
 import com.example.hcservices.entities.Measurement;
 import com.example.hcservices.repository.MeasurementRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class MeasurementService {
@@ -32,8 +32,8 @@ public class MeasurementService {
      * @param userId The ID of the user to retrieve measurement history.
      * @return The measurement history for the specified user.
      */
-    public List<Measurement> getMeasurementHistory(Long userId) {
-        return measurementRepository.findByUserIdOrderByLocalDateTimeDesc(userId);
+    public Page<Measurement> getMeasurementHistory(Long userId, Pageable pageable) {
+        return measurementRepository.findByUserIdOrderByLocalDateTimeDesc(userId, pageable);
     }
 
 }

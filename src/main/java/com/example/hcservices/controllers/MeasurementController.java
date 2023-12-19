@@ -5,6 +5,8 @@ import com.example.hcservices.services.MeasurementService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -34,8 +36,8 @@ public class MeasurementController {
 
     @Operation(summary = "Get user measurement history", description = "Retrieve the measurement history for a user by userId.")
     @GetMapping("/{userId}/history")
-    public ResponseEntity<List<Measurement>> getMeasurementHistory(@PathVariable Long userId) {
-        List<Measurement> history = measurementService.getMeasurementHistory(userId);
+    public ResponseEntity<Page<Measurement>> getMeasurementHistory(@PathVariable Long userId, Pageable pageable) {
+        Page<Measurement> history = measurementService.getMeasurementHistory(userId, pageable);
         return new ResponseEntity<>(history, HttpStatus.OK);
     }
 }
