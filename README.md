@@ -5,12 +5,27 @@ MacOS ./start_app.sh
 Linux ./start_app.bat
 Windows java -jar target\hcservices-0.0.1-SNAPSHOT.jar
 
-when the application has started, you can see java docs
+When starting the application, the database will be created automatically.
+
+Now you can see java docs
 http://localhost:8080/v3/api-docs
+
+For convenience, you can use the user interface for look data base. 
+For this, follow the link and connect with settings
+http://localhost:8080/h2-console
+
+Saved Settings: Generic H2 (Embedded)
+Setting Name: Generic H2 (Embedded)
+Driver Class: org.h2.Driver
+JDBC URL: jdbc:h2:mem:testdb
+User Name: sa
+Password:
+
 
 also you can go and test it through swagger,
 http://127.0.0.1:8080/swagger-ui/index.html#/
 Valid json for first endpoint Submit a new measurement
+
 ```json
 {
 "id": 0,
