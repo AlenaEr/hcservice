@@ -1,8 +1,8 @@
 package com.example.hcservices.validators;
 
-import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 
 public interface DateRangeValidatable {
-    LocalDateTime getFromDateTime();
-    LocalDateTime getToDateTime();
+    ZonedDateTime getFromDateTime();
+    ZonedDateTime getToDateTime();
 }
