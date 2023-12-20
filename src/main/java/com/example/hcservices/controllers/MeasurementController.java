@@ -11,12 +11,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @Tag(name = "Measurement Controller", description = "Operations related to measurements")
 @RestController
 @RequestMapping("/api")
 public class MeasurementController {
+
+    //TODO add more endpoints(see README)
 
     @Autowired
     MeasurementService measurementService;
@@ -34,6 +34,13 @@ public class MeasurementController {
         return new ResponseEntity<>(submittedMeasurement, HttpStatus.CREATED);
     }
 
+    /**
+     * Get user measurement history by userId.
+     *
+     * @param userId   The ID of the user to retrieve measurement history.
+     * @param pageable Pageable information for pagination.
+     * @return The measurement history for the specified user.
+     */
     @Operation(summary = "Get user measurement history", description = "Retrieve the measurement history for a user by userId.")
     @GetMapping("/{userId}/history")
     public ResponseEntity<Page<Measurement>> getMeasurementHistory(@PathVariable Long userId, Pageable pageable) {
