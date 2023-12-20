@@ -8,7 +8,7 @@ Windows java -jar target\hcservices-0.0.1-SNAPSHOT.jar
 When starting the application, the database will be created automatically.
 
 Now you can see java docs
-http://localhost:8080/v3/api-docs
+http://localhost:63342/hcservices/target/site/apidocs/index.html
 
 For convenience, you can use the user interface for look data base. 
 For this, follow the link and connect with settings
